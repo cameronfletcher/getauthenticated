@@ -22,12 +22,10 @@
         [EnableCors(allowedMethods: "POST,OPTIONS", allowedHeaders: "authorization, content-type")]
         public object Post(AuthenticationRequest request)
         {
-            // TODO (Cameron): Require that client credentials from Authorization header are valid.
             // TODO (Cameron): Require that Content-Type is application/x-www-form-urlencoded
             // TODO (Cameron): Require that request.GrantType == "authorization_code"
-            // TODO (Cameron): Require that request.RedirectUri is valid?
             // NOTE (Cameron): Here we federate to Google...
-            this.authenticationService.Authenticate(request.GrantType, request.Code, request.RedirectUri);
+            this.authenticationService.Authenticate(request.Code, request.RedirectUri);
 
             var accessToken = CreateAccessToken();
             var idToken = CreateIdToken();

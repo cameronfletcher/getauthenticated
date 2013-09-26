@@ -27,6 +27,8 @@
             }
 
             var accessToken = authorizationHeader.Substring(7); /* or request.QueryString["access_token"]; */
+
+            // TODO (Cameron): Call UserInfo endpoint to get claims for user with token
             // query OpenIdConnect.AuthorizationServer.WebApi (UserInfo Endpoint)
 
             // LINK (Cameron): http://nat.sakimura.org/2012/01/26/scopes-and-claims-in-openid-connect/

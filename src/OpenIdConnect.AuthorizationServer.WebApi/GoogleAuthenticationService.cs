@@ -19,7 +19,7 @@
             this.clientSecret = clientSecret;
         }
 
-        public void Authenticate(string grantType, string code, string redirectUri)
+        public void Authenticate(string code, string redirectUri)
         {
             var formData = string.Format(CultureInfo.InvariantCulture, FormData, code, clientId, clientSecret, redirectUri, "authorization_code");
             var uri = new Uri("https://accounts.google.com/o/oauth2/token");
@@ -28,7 +28,7 @@
             var response = HttpPost(uri, formData);
         }
 
-        public static string HttpPost(Uri uri, string parameters)
+        private static string HttpPost(Uri uri, string parameters)
         {
             var bytes = Encoding.ASCII.GetBytes(parameters);
             var request = WebRequest.Create(uri);

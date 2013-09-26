@@ -2,6 +2,6 @@
 {
     public interface IAuthenticationService
     {
-        void Authenticate(string grantType, string code, string redirectUri);
+        void Authenticate(string code, string redirectUri);
     }
 }
